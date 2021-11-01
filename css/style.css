@@ -18,6 +18,27 @@ img {
 li {
   list-style: none;
 }
+
+dt{
+  cursor:pointer;
+  border: 1pt solid;
+  border-radius: 8px;
+}
+
+dd {  /* 回答です */
+  padding: 8px;             /* 余白を持たせる   dtとddに設定する */
+  margin: 0;                /* dl タグと にはブラウザが margin を設定してしまっているので、リセット */
+  display: none;            /* 初期時は、回答の内容を隠しておきたい */
+}
+
+dd::before {  /* 「回答です」の前に、回答を表す A という文字を入れる */
+  content: 'A. ';
+}
+
+dl > div.appear dd {        /* ddの内容を表示したいため、 dlの直下の divに appearクラスがついたら、 */
+  display: block;           /* divの中の ddに対して display: block;とする                           */
+  animation: .3s fadeIn;    /* ↓のfadeIn：animation プロパティを使って 0.3 秒かけて fadeInを実行   */
+}
 /*
 コンテンツ幅を設定するための共通クラス
 */
